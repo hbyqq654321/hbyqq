@@ -47,3 +47,22 @@ public:
         return vecRet;
     }
 };
+
+Approach_3 for O(n)
+class Solution {
+public:
+    vector<int> twoSum(vector<int>& nums, int target) {
+        map<int,int> mapNum;
+        vector<int> vecRet;
+        for(int i=0; i<nums.size(); i++){
+            map<int,int>::iterator iter = mapNum.find(target - nums[i]);
+            if(iter != mapNum.end() && (iter->second != i)){
+                vecRet.push_back(iter->second);
+                vecRet.push_back(i);
+                return vecRet;
+            }
+            mapNum[nums[i]] = i;
+        }
+        return vecRet;
+    }
+};
